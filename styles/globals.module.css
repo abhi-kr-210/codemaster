@@ -1,0 +1,286 @@
+:root {
+  color-scheme: light;
+  --bg: #f2f7ff;
+  --surface: #ffffff;
+  --surface-muted: #eef3ff;
+  --text: #10203d;
+  --muted: #5f6d8a;
+  --accent: #3366ff;
+  --accent-soft: rgba(51, 102, 255, 0.14);
+  --border: rgba(16, 32, 61, 0.08);
+  --shadow: 0 24px 60px rgba(17, 40, 77, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top left, rgba(51, 102, 255, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(124, 180, 255, 0.12), transparent 32%),
+    var(--bg);
+  color: var(--text);
+}
+
+body {
+  line-height: 1.6;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.pageShell {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 32px;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 3vw, 3.2rem);
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.panelWide {
+  grid-column: 1 / -1;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.label,
+.smallLabel {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.textarea,
+.codeArea,
+input {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
+  color: var(--text);
+  padding: 16px;
+  resize: vertical;
+}
+
+.textarea {
+  min-height: 120px;
+}
+
+.codeArea {
+  min-height: 260px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+}
+
+.smallLabel input,
+.smallLabel textarea {
+  margin-top: 8px;
+}
+
+.row,
+.buttonRow,
+.summaryGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.buttonRow {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 8px;
+}
+
+.primaryButton,
+.secondaryButton {
+  border: none;
+  border-radius: 18px;
+  padding: 16px 20px;
+  font-weight: 700;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: white;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.testArea {
+  background: var(--surface-muted);
+  border-radius: 24px;
+  padding: 18px;
+}
+
+.testHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.tabRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tabButton {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: white;
+  color: var(--text);
+}
+
+.activeTab {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.testList {
+  display: grid;
+  gap: 18px;
+}
+
+.caseCard {
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 18px;
+  background: white;
+}
+
+.caseTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.removeButton {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.summaryGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 20px;
+  color: var(--muted);
+}
+
+.successBanner {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(56, 183, 85, 0.12);
+  color: #175e2f;
+}
+
+.logArea {
+  min-height: 220px;
+  display: grid;
+  gap: 14px;
+}
+
+.logEntry {
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+.passed {
+  border-left: 4px solid #2d9f6d;
+}
+
+.failed {
+  border-left: 4px solid #d64550;
+}
+
+.emptyState {
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .row,
+  .buttonRow,
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .panel {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeMaster</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <h1>CodeMaster</h1>
+        <p>Build, run and submit programming questions with public and hidden testcases.</p>
+      </div>
+      <button id="themeToggle" class="theme-btn">Dark mode</button>
+    </header>
+
+    <main class="app-grid">
+      <section class="panel panel-wide">
+        <div class="panel-header">
+          <h2>Question Setup</h2>
+          <span class="tag">Frontend only</span>
+        </div>
+
+        <label>
+          Problem statement
+          <textarea id="questionText" placeholder="Describe the programming problem..."></textarea>
+        </label>
+
+        <div class="field-row">
+          <label class="small-field">
+            Time limit (seconds)
+            <input id="timeLimit" type="number" min="1" value="2" />
+          </label>
+          <label class="small-field">
+            Score per question
+            <input id="scoreValue" type="number" min="0" value="100" />
+          </label>
+        </div>
+
+        <div class="test-area">
+          <div class="test-header">
+            <h3>Test cases</h3>
+            <button id="addTestBtn" class="accent">Add case</button>
+          </div>
+          <div class="test-tabs">
+            <button class="tab-btn active" data-target="publicTests">Public</button>
+            <button class="tab-btn" data-target="hiddenTests">Hidden</button>
+          </div>
+          <div id="publicTests" class="test-list visible"></div>
+          <div id="hiddenTests" class="test-list"></div>
+        </div>
+      </section>
+
+      <section class="panel panel-slim">
+        <div class="panel-header">
+          <h2>Code Runner</h2>
+        </div>
+        <label>
+          Java code input
+          <textarea id="codeInput" class="code-area" placeholder="Enter your Java code here...\nExample: print output based on input"></textarea>
+        </label>
+
+        <div class="field-row stacked">
+          <button id="runBtn" class="primary">Execute public tests</button>
+          <button id="submitBtn" class="ghost">Submit hidden tests</button>
+        </div>
+
+        <div class="panel-summary">
+          <div><strong>Public passed:</strong> <span id="publicPassed">0</span>/<span id="publicTotal">0</span></div>
+          <div><strong>Hidden passed:</strong> <span id="hiddenPassed">0</span>/<span id="hiddenTotal">0</span></div>
+          <div><strong>Score:</strong> <span id="finalScore">0</span></div>
+        </div>
+      </section>
+
+      <section class="panel panel-wide">
+        <div class="panel-header">
+          <h2>Results stream</h2>
+        </div>
+        <div id="resultLog" class="result-log"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="testCaseTemplate">
+    <div class="test-case-card">
+      <div class="case-top">
+        <span class="case-label"></span>
+        <button class="remove-case">Remove</button>
+      </div>
+      <label>
+        Input
+        <textarea class="case-input" placeholder="Test input lines separated by spaces or new lines"></textarea>
+      </label>
+      <label>
+        Expected output
+        <textarea class="case-output" placeholder="Expected output"></textarea>
+      </label>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
